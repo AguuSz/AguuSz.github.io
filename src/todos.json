@@ -1,0 +1,28 @@
+{
+	"tareas": [
+		{
+			"title": "Task 1",
+			"description": "Lorem ipsum",
+			"priority": "low",
+			"id": 1
+		},
+		{
+			"title": "Task 2",
+			"description": "Lorem ipsum2",
+			"priority": "medium",
+			"id": 2
+		},
+		{
+			"title": "Task 3",
+			"description": "Lorem ipsum",
+			"priority": "high",
+			"id": 3
+		},
+		{
+			"title": "Task 4",
+			"description": "Lorem ipsum",
+			"priority": "high",
+			"id": 4
+		}
+	]
+}
