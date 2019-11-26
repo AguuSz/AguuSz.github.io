@@ -23,7 +23,7 @@ class Formulario extends Component {
         firebase.firestore().collection('todos').add({
             "title": this.state.title,
             "description": this.state.description,
-            "date": mydate('date'),
+            "date": mydate('full'),
         })
 
         this.setState({
