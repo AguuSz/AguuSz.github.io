@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 
 export class Carta extends Component {
+
     render() {
-        const { title, date, description, id } = this.props;
+        const { title, date, description, id, hour } = this.props;
         return (
             <div className="col-md-3">
                 <div className="card mt-4">
@@ -10,6 +11,9 @@ export class Carta extends Component {
                         <h3>{title}</h3>
                         <span className="badge badge-pill badge-danger ml-2">
                             {date}
+                        </span>
+                        <span className="badge badge-pill badge-info ml-2">
+                            {hour}
                         </span>
                     </div>
                     <div className="card-body">

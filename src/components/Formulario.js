@@ -24,6 +24,7 @@ class Formulario extends Component {
             "title": this.state.title,
             "description": this.state.description,
             "date": mydate('date'),
+            "hour": mydate('time')
         })
 
         this.setState({

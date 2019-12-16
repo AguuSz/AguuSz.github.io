@@ -6,8 +6,6 @@ import { Ripple } from 'react-awesome-spinners';
 import firebase from 'firebase';
 import Swal from 'sweetalert2';
 
-
-
 export class TodoList extends Component {
 
     onClick = (id) => {
@@ -15,11 +13,6 @@ export class TodoList extends Component {
 
         db.collection("todos").doc(id).delete().then(function () {
             //Que hacer cuando se borre
-            Swal.fire(
-                'Hecho!',
-                'Se ha completado la tarea!',
-                'success'
-            )
         }).catch(function (error) {
             //Que hacer cuando tire error
             Swal.fire({
@@ -29,6 +22,11 @@ export class TodoList extends Component {
             })
 
         });
+        Swal.fire(
+            'Hecho!',
+            'Se ha completado la tarea!',
+            'success'
+        )
     }
 
     render() {
@@ -44,18 +42,12 @@ export class TodoList extends Component {
                                 ) : (
                                         <React.Fragment>
                                             {data.map(usuario => (
-                                                <Carta key={usuario.id} title={usuario.title} date={usuario.date} description={usuario.description} id={usuario.id} onClick={this.onClick} />
+                                                <Carta key={usuario.id} title={usuario.title} date={usuario.date} description={usuario.description} id={usuario.id} hour={usuario.hour} onClick={this.onClick} />
                                             ))}
                                         </React.Fragment>
                                     )
                             }}
                         />
-                        {
-                            //Aca irian las cartas generadas en base a los datos
-                            // this.props.todos.map((todo) => (
-                            //     <Carta todo={todo} key={todo.id} delTodo={this.props.delTodo} />
-                            // ))
-                        }
                     </div>
                 </div>
             </div>

@@ -1,19 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Navigation extends Component {
-	render() {
-		return (
-			<nav className="navbar navbar-dark bg-dark">
-				<a className="text-white" href="/#">
-					{this.props.titulo} -
-
-					<span className="badge badge-pill badge-light ml-2">
-						4
-						{/* {this.props.contadorTareas} */}
-					</span>
-				</a>
-			</nav>
-		);
-	}
+function Navigation(props) {
+	return (
+		<nav className="navbar navbar-dark bg-dark sticky-top">
+			<a className="text-white" href="/">Tasks</a>
+			<a className="text-white" href="/signIn">Log in</a>
+		</nav>
+	)
 }
 export default Navigation;
