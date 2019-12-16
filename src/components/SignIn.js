@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import firebase from 'firebase';
+import Swal from 'sweetalert2';
 
 export class SignIn extends Component {
 
     constructor() {
         super()
         this.state = {
-            name: '',
             email: '',
             password: ''
         }
@@ -21,18 +22,31 @@ export class SignIn extends Component {
         //Evita que se refresque la pagina
         e.preventDefault();
 
+        const { email, password } = this.state;
+
         //Comprueba que los datos existan en la base de datos
+        firebase.auth().signInWithEmailAndPassword(email, password)
+            .then(() => {
+                Swal.fire(
+                    'Done!',
+                    'You have logged in',
+                    'success'
+                )
+                this.setState({
+                    name: '',
+                    email: '',
+                    password: ''
+                })
+            })
+            .catch((error) => {
+                error = error.toString();
+                Swal.fire(
+                    "There's been an error!",
+                    error,
+                    'error'
+                )
+            })
 
-
-        //Redirecciona e ingresa
-
-
-        //Resetea el estado de la app
-        this.setState({
-            name: '',
-            email: '',
-            password: ''
-        })
     }
 
     render() {
@@ -45,14 +59,16 @@ export class SignIn extends Component {
                             <input
                                 type="text"
                                 name="email"
+                                value={this.state.email}
                                 onChange={this.handleInput}
                                 className="form-control form-control-md text-center mb-3"
                                 placeholder="Email"
                                 required>
                             </input>
                             <input
-                                type="text"
+                                type="password"
                                 name="password"
+                                value={this.state.password}
                                 onChange={this.handleInput}
                                 className="form-control form-control-md text-center mb-3"
                                 placeholder="Password"
@@ -60,7 +76,7 @@ export class SignIn extends Component {
                             </input>
 
                             <input type="checkbox" name="rememberMe" id="remember" />
-                            <label for="remember">Remember me</label>
+                            <label htmlFor="remember">Remember me</label>
 
                             <input type="submit" className="btn btn-lg btn-success btn-block" value="Sign in"></input>
                             <br />
