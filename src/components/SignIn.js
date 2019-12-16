@@ -2,12 +2,37 @@ import React, { Component } from 'react'
 
 export class SignIn extends Component {
 
-    handleInput = () => {
-
+    constructor() {
+        super()
+        this.state = {
+            name: '',
+            email: '',
+            password: ''
+        }
     }
 
-    handleSubmit = () => {
+    handleInput = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    }
 
+    handleSubmit = (e) => {
+        //Evita que se refresque la pagina
+        e.preventDefault();
+
+        //Comprueba que los datos existan en la base de datos
+
+
+        //Redirecciona e ingresa
+
+
+        //Resetea el estado de la app
+        this.setState({
+            name: '',
+            email: '',
+            password: ''
+        })
     }
 
     render() {
@@ -22,14 +47,16 @@ export class SignIn extends Component {
                                 name="email"
                                 onChange={this.handleInput}
                                 className="form-control form-control-md text-center mb-3"
-                                placeholder="Email">
+                                placeholder="Email"
+                                required>
                             </input>
                             <input
                                 type="text"
                                 name="password"
                                 onChange={this.handleInput}
                                 className="form-control form-control-md text-center mb-3"
-                                placeholder="Password">
+                                placeholder="Password"
+                                required>
                             </input>
 
                             <input type="checkbox" name="rememberMe" id="remember" />
