@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Navigation(props) {
+function Header(props) {
 	return (
 		<nav className="navbar navbar-dark bg-dark sticky-top">
 			<a className="text-white" href="/">Home</a>
@@ -8,4 +8,4 @@ function Navigation(props) {
 		</nav>
 	)
 }
-export default Navigation;
+export default Header;

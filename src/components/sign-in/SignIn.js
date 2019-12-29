@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import firebase from 'firebase';
 import Swal from 'sweetalert2';
+import { Redirect } from 'react-router-dom';
 
 export class SignIn extends Component {
 
@@ -8,8 +9,41 @@ export class SignIn extends Component {
         super()
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            idUsuario: '',
+            emailUsuario: '',
+            nameUsuario: '',
+            emailVerifiedUsuario: '',
+            photoURLUsuario: '',
+            redirect: false
         }
+    }
+
+    userLogged = () => {
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                // User is signed in.
+                const { email, uid, displayName, emailVerified, photoURL } = user;
+
+                this.setState({
+                    idUsuario: uid,
+                    emailUsuario: email,
+                    nameUsuario: displayName,
+                    emailVerifiedUsuario: emailVerified,
+                    photoURLUsuario: photoURL,
+                });
+                // ...
+            } else {
+                // User is signed out.
+                this.setState({
+                    idUsuario: '',
+                    emailUsuario: '',
+                    nameUsuario: '',
+                    emailVerifiedUsuario: '',
+                    photoURLUsuario: ''
+                });
+            }
+        });
     }
 
     handleInput = (e) => {
@@ -35,7 +69,8 @@ export class SignIn extends Component {
                 this.setState({
                     name: '',
                     email: '',
-                    password: ''
+                    password: '',
+                    redirect: true
                 })
             })
             .catch((error) => {
@@ -50,6 +85,11 @@ export class SignIn extends Component {
     }
 
     render() {
+
+        if (this.state.redirect) {
+            return <Redirect to="/" />
+        }
+
         return (
             <div className="row mt-4 mx-auto container w-50">
                 <div className="my-4 mr-3 col-sm-12">

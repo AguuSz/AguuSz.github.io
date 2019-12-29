@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Carta from './Carta';
-import '../App.css'
+import Carta from '../carta/Carta';
+import '../../App.css'
 import { FirestoreCollection } from 'react-firestore';
 import { Ripple } from 'react-awesome-spinners';
 import firebase from 'firebase';
@@ -10,6 +10,7 @@ export class TodoList extends Component {
 
     onClick = (id) => {
         const db = firebase.firestore();
+        console.log(id);
 
         db.collection("todos").doc(id).delete().then(function () {
             //Que hacer cuando se borre

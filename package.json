@@ -1,6 +1,6 @@
 {
-  "homepage": "http://aguusz.github.io/todo",
-  "name": "todo",
+  "homepage": "http://aguusz.github.io/todo-temp",
+  "name": "todo-temp",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -19,9 +19,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.3.0",
     "styled-components": "^4.4.1",
-    "sweetalert2": "^9.4.0",
-    "uuid": "^3.3.3",
-    "uuidv4": "^6.0.0"
+    "sweetalert2": "^9.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
