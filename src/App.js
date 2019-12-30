@@ -1,54 +1,31 @@
-import React, { Component } from 'react';
-import './App.css';
+import React from 'react';
+import './App.css'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
+//Import de componentes
 import Header from './components/header/header';
-import TodoList from './components/todoList/TodoList';
-import Formulario from "./components/formulario/Formulario";
-import SignIn from './components/sign-in/SignIn';
-import SignUp from './components/sign-up/SignUp';
+import Homepage from './components/homepage/homepage';
+import SignInAndSignUp from './components/sign-in-and-sign-up/SignInAndSignUp';
+import About from './components/about/About';
 
-class App extends Component {
-
+class App extends React.Component {
 	constructor() {
 		super()
+
 		this.state = {
-			usuario: '',
-			email: ''
+			test: ''
 		}
 	}
 
-	updateState = (data) => {
-
-	}
 	render() {
 		return (
 			<Router>
-				<div className="App">
-					<Header titulo="Tasks" />
-
-					<div className="container">
-						<Route path="/" exact>
-							<div className="row mt-4">
-								<div className="col-md-3 col-sm-12">
-									<Formulario />
-								</div>
-								<div className="col-md-9">
-									<TodoList />
-								</div>
-							</div>
-						</Route>
-						<Route path="/signIn">
-							<SignIn />
-						</Route>
-						<Route path="/signUp">
-							<SignUp />
-						</Route>
-
-					</div>
-				</div>
+				<Header />
+				<Route path="/" exact component={Homepage}></Route>
+				<Route path="/signIn" component={SignInAndSignUp}></Route>
+				<Route path="/about" component={About}></Route>
 			</Router>
-		);
+		)
 	}
 }
 
