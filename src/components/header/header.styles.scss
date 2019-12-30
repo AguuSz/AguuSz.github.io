@@ -10,7 +10,7 @@
     }
 
     .opciones {
-        width: 13%;
+        width: 11%;
         display: flex;
         justify-content: space-between;
     }
@@ -18,5 +18,13 @@
     & .option {
         color: white;
         text-decoration: none;
+        cursor: pointer;
     }
+    .green:hover {
+        color: green;
+    }
+    .sign-out:hover {
+        color: red;
+    }
+
 }

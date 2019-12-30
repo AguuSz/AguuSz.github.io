@@ -1,13 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react';
+import './sign-in-and-sign-up.styles.scss';
 
-export class SignInAndSignUp extends Component {
-    render() {
-        return (
-            <div>
-                <h1>SignInAndSignUp</h1>
-            </div>
-        )
-    }
-}
+import SignIn from '../sign-in/sign-in';
+import SignUp from '../sign-up/sign-up';
 
-export default SignInAndSignUp
+const SignInAndSignUp = () => (
+    <div className="sign-in-and-sign-up">
+        <SignIn />
+        <SignUp />
+    </div>
+)
+
+export default SignInAndSignUp;

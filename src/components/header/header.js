@@ -2,14 +2,20 @@ import React from 'react';
 import './header.styles.scss'
 
 import { Link } from 'react-router-dom';
+import { auth } from '../../firebase/firebase.utils';
 
-const Header = () => {
+const Header = ({ currentUser }) => {
     return (
         <div className="header">
-            <Link to="/" className="option">Inicio</Link>
+            <Link to="/" className="option">INICIO</Link>
             <div className="opciones">
-                <Link to="/signIn" className="option">Log in</Link>
-                <Link to="/about" className="option">Acerca</Link>
+                {
+                    currentUser ?
+                        (<div className="option sign-out" onClick={() => auth.signOut()}>SIGN OUT</div>)
+                        :
+                        (<Link to="/signIn" className="option green">SIGN IN</Link>)
+                }
+                <Link to="/about" className="option">ACERCA</Link>
             </div>
         </div>
     )

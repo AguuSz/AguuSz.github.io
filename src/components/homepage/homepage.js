@@ -1,13 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
+import './homepage.styles.scss';
 
-export class Homepage extends Component {
-    render() {
-        return (
-            <div>
-                <h1>Homepage</h1>
-            </div>
-        )
-    }
-}
+const Homepage = ({ currentUser }) => (
+    <div className="container">
+        <h1>Hola</h1>
+    </div>
+)
 
 export default Homepage
