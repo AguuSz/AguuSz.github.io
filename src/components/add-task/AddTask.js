@@ -17,7 +17,6 @@ export class AddTask extends Component {
     handleChange = (e) => {
         const { name, value } = e.target;
         this.setState({ [name]: value });
-        console.log('done')
     }
 
     handleSubmit = async (e) => {
