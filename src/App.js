@@ -36,7 +36,6 @@ class App extends React.Component {
 				})
 			} else { //En caso de que no este iniciada la sesion
 				this.setState({ currentUser: null });
-
 			}
 		})
 	}

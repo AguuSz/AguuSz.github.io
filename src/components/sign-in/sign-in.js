@@ -34,12 +34,14 @@ class SignIn extends React.Component {
             this.setState({
                 email: '',
                 password: ''
+            }, () => {
+                Swal.fire(
+                    'Exito!',
+                    'Ha iniciado sesion, ahora puede ir al homescreen',
+                    'success'
+                )
             })
-            Swal.fire(
-                'Exito!',
-                'Ha iniciado sesion, ahora puede ir al homescreen',
-                'success'
-            )
+
         } catch (error) {
             alert(error)
         }

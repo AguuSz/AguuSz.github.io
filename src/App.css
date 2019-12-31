@@ -1,9 +1,16 @@
+html {
+    background-color: white;
+}
 body {
     font-family: 'Open Sans Condensed';
+    background: white;
 }
 a {
   text-decoration: none;
 }
 * {
     box-sizing: border-box;
+}
+.container {
+    width: 1200px;
 }

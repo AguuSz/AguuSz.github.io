@@ -1,12 +1,12 @@
 .header {
-    background-color: #00171F;
+    background-color: #37434F;
     padding: 30px;
     display: flex;
     justify-content: space-between;
     font-size: 20px;
 
     .inicio {
-        color: white;
+        color: #B7C3F3;
     }
 
     .opciones {
@@ -16,15 +16,15 @@
     }
 
     & .option {
-        color: white;
+        color: #B7C3F3;
         text-decoration: none;
         cursor: pointer;
     }
     .green:hover {
-        color: green;
+        color: #DD7596;
     }
     .sign-out:hover {
-        color: red;
+        color: #DD7596;
     }
 
 }

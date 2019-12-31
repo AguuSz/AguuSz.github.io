@@ -20,13 +20,14 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
     if (!snapshot.exists) {
         //Si la snapshot no existe, entonces queremos que se cree
-        const { displayName, email } = userAuth;
+        const { displayName, email, uid } = userAuth;
         const createdAt = new Date();
 
         try {
             await userRef.set({
                 displayName,
                 email,
+                uid,
                 createdAt,
                 ...additionalData
             })

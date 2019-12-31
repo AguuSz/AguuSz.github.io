@@ -1,0 +1,37 @@
+.add-task {
+    width: 300px;
+    border-radius: 30px;
+
+    & .formulario {
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+    }
+
+    & .form-titulo {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    & .form-input {
+        margin: 5px 0;
+        padding: 10px;
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid #DD7596;
+    }
+
+    & .boton {
+        padding: 20px;
+        font-size: 20px;
+        color: white;
+        margin-top: 20px;
+        background-color: #CF1259;
+        border: none;
+        border-radius: 20px;
+    }
+
+    .boton:hover {
+        background-color: #A50E48;  
+    }
+}
