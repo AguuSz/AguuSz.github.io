@@ -12,7 +12,7 @@
 
     .titulo {
         text-align: center;
-        margin-bottom: 20px;
+        margin-bottom: 5px;
     }
     
 
@@ -30,5 +30,19 @@
     }
     .grow:hover {
         transform: scale(1.1); 
+    }
+
+    .selector-categoria {
+        display: flex;
+        justify-content: space-between;
+    }
+    .selector {
+        width: 600px;
+        margin-right: -68px;
+        border: 1px solid #e2eded;
+        border-color: #eaf1f1 #e4eded #dbe7e7 #e4eded;
+        border-radius: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }

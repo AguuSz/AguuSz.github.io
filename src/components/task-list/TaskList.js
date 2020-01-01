@@ -12,8 +12,15 @@ export class TaskList extends Component {
         super(props)
 
         this.state = {
-            todos: []
+            todos: [],
+            categoria: ''
         }
+    }
+
+    handleChange = (e) => {
+        this.setState({
+            categoria: e.target.value
+        });
     }
 
     handleClick = (idTask) => {
@@ -27,13 +34,24 @@ export class TaskList extends Component {
     }
 
     render() {
-        const { id } = this.props.currentUser
+        const { id } = this.props.currentUser;
+        const { categoria } = this.state;
         return (
             <div className="task-list">
                 <h1 className="titulo">Lista de tareas</h1>
+                <div className="selector-categoria">
+                    <label htmlFor="categoria">Ordenar por categoria: </label>
+                    <select name="categoria" className="selector" onChange={this.handleChange}>
+                        <option value="">Varios</option>
+                        <option value="libros">Libros</option>
+                        <option value="programacion">Programacion</option>
+                        <option value="gimnasio">Gimnasio</option>
+                    </select>
+                </div>
                 <div className="container">
                     <FirestoreCollection
                         path={`users/${id}/todos`}
+                        filter={['categoria', '==', `${categoria}`]}
                         render={({ isLoading, data }) => {
                             return isLoading ? (
                                 <h1>CARGANDO...</h1>

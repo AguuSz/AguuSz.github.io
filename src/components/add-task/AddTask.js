@@ -10,7 +10,8 @@ export class AddTask extends Component {
 
         this.state = {
             titulo: '',
-            descripcion: ''
+            descripcion: '',
+            categoria: ''
         }
     }
 
@@ -22,7 +23,7 @@ export class AddTask extends Component {
     handleSubmit = async (e) => {
         e.preventDefault();
 
-        const { titulo, descripcion } = this.state;
+        const { titulo, descripcion, categoria } = this.state;
         const { id } = this.props.currentUser;
         const createdAt = new Date();
 
@@ -31,12 +32,14 @@ export class AddTask extends Component {
         await userRef.add({
             titulo,
             descripcion,
+            categoria,
             createdAt
         })
             .then(() => {
                 this.setState({
                     titulo: '',
-                    descripcion: ''
+                    descripcion: '',
+                    categoria: ''
                 });
             })
             .catch((error) => alert(error))
@@ -65,6 +68,16 @@ export class AddTask extends Component {
                         placeholder="Descripcion.."
                         onChange={this.handleChange}
                     />
+                    <div className="selector-categoria">
+                        <label htmlFor="categoria">Categoria: </label>
+                        <select name="categoria" className="selector" onChange={this.handleChange} value={this.state.categoria}>
+                            <option value="">Varios</option>
+                            <option value="libros">Libros</option>
+                            <option value="programacion">Programacion</option>
+                            <option value="gimnasio">Gimnasio</option>
+                        </select>
+                    </div>
+
 
                     <button className="boton submit" onClick={this.handleSubmit}>AÑADIR</button>
                 </form>
