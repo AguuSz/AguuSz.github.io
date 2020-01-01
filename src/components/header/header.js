@@ -7,15 +7,17 @@ import { auth } from '../../firebase/firebase.utils';
 const Header = ({ currentUser }) => {
     return (
         <div className="header">
-            <Link to="/" className="option">INICIO</Link>
-            <div className="opciones">
-                {
-                    currentUser ?
-                        (<div className="option sign-out" onClick={() => auth.signOut()}>SIGN OUT</div>)
-                        :
-                        (<Link to="/signIn" className="option green">SIGN IN</Link>)
-                }
-                <Link to="/about" className="option">ACERCA</Link>
+            <div className="container">
+                <Link to="/" className="option">INICIO</Link>
+                <div className="opciones">
+                    {
+                        currentUser ?
+                            (<div className="option sign-out" onClick={() => auth.signOut()}>SIGN OUT</div>)
+                            :
+                            (<Link to="/signIn" className="option green">SIGN IN</Link>)
+                    }
+                    <Link to="/about" className="option">ACERCA</Link>
+                </div>
             </div>
         </div>
     )

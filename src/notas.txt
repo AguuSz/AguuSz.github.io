@@ -1,0 +1,14 @@
+<FirestoreCollection
+                        path={`users/${id}/todos`}
+                        render={({ isLoading, data }) => {
+                            return isLoading ? (
+                                <h1>CARGANDO...</h1>
+                            ) : (
+                                    <div className="cartas">
+                                        {data.map(({ id, ...additionalProps }) => (
+                                            <Task key={id} {...additionalProps} />
+                                        ))}
+                                    </div>
+                                );
+                        }}
+                    />

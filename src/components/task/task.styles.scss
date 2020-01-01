@@ -1,6 +1,56 @@
 .carta {
-    width: 200px;
-    border: 2px solid black;
+    width: 250px;
     border-radius: 10px;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px 10px 10px;
+    background-color: #F0F0F0;
+    transition: all .2s ease-in-out; 
+    
+    .carta:hover {
+        transform: scale(1.1); 
+    }
+
+    .titulo {
+        text-align: center;
+    }
+    .titulo:after {
+        content: '';
+        display: block;
+        border: 0.5px solid #37434F;
+        width: 200px;
+        margin: 2px auto;
+    }
+    .descripcion {
+        text-align: center;
+        font-size: 18px;
+    }
+    .boton {
+        // background-color: #CF1259;
+        // border: none;
+        // border-radius: 10px;
+        // display: inline-block;
+        // width: 120px;
+        // margin: 0 auto;
+        // font-size: 20px;
+        // color: white;
+        // padding: 7px;
+        color: #494949 !important;
+        text-transform: uppercase;
+        border-radius: 10px;
+        text-decoration: none;
+        background: #ffffff;
+        width: 120px;
+        padding: 7px;
+        margin: 0 auto;
+        border: 2px solid #494949 !important;
+        transition: all 0.4s ease 0s;
+    }
+    .boton:hover {
+        // background-color: #A50E48;
+        color: #ffffff !important;
+        background: #CF1259;
+        border-color: #A50E48 !important;
+        transition: all 0.4s ease 0s;
+    }
 }

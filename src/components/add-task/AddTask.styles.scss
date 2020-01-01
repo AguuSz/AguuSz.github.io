@@ -29,9 +29,11 @@
         background-color: #CF1259;
         border: none;
         border-radius: 20px;
+        transition: all .2s ease-in-out; 
     }
 
     .boton:hover {
         background-color: #A50E48;  
+        transform: scale(1.1); 
     }
 }

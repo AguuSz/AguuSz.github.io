@@ -10,7 +10,7 @@ const Homepage = ({ currentUser }) => (
             currentUser ?
                 (<div className="homepage">
                     <AddTask currentUser={currentUser} />
-                    <TaskList />
+                    <TaskList currentUser={currentUser} />
                 </div>)
                 :
                 (<div>
