@@ -33,11 +33,13 @@ export class AddTask extends Component {
             descripcion,
             createdAt
         })
-
-        this.setState({
-            titulo: '',
-            descripcion: ''
-        });
+            .then(() => {
+                this.setState({
+                    titulo: '',
+                    descripcion: ''
+                });
+            })
+            .catch((error) => alert(error))
 
     }
 

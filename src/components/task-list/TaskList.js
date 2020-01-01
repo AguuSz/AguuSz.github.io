@@ -16,20 +16,14 @@ export class TaskList extends Component {
         }
     }
 
-    componentDidMount() {
+    handleClick = (idTask) => {
         const { id } = this.props.currentUser;
-        const userRef = firestore.collection(`users/${id}/todos`);
+        const docRef = firestore.doc(`users/${id}/todos/${idTask}`);
 
-        const todos = [];
-
-        userRef.onSnapshot((querySnapshot) => {
-            querySnapshot.forEach(doc => {
-                todos.push(doc.data())
+        docRef.delete()
+            .catch((error) => {
+                alert(error)
             })
-            this.setState({
-                todos: todos
-            })
-        })
     }
 
     render() {
@@ -48,7 +42,7 @@ export class TaskList extends Component {
                                         {
 
                                             data.map(({ id, ...additionalProps }) => (
-                                                <Task key={id} id={id} {...additionalProps} />
+                                                <Task key={id} id={id} {...additionalProps} onClick={this.handleClick} />
                                             ))
                                         }
                                     </React.Fragment>
