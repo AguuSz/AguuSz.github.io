@@ -6,6 +6,7 @@ class Task extends React.Component {
         return (
             <div className="carta">
                 <h1 className="titulo">{this.props.titulo}</h1>
+                <span className="categoria">{this.props.categoria.toUpperCase()}</span>
                 <p className="descripcion">{this.props.descripcion}</p>
 
                 <button className="boton pulse" onClick={this.props.onClick.bind(this, this.props.id)}>ELIMINAR</button>

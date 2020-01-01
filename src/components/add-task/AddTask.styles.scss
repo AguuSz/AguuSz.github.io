@@ -36,4 +36,19 @@
         background-color: #A50E48;  
         transform: scale(1.1); 
     }
+
+    .selector-categoria {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .selector {
+        width: 150px;
+        border: 1px solid #e2eded;
+        border-color: #eaf1f1 #e4eded #dbe7e7 #e4eded;
+        border-radius: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }
