@@ -14,7 +14,8 @@ class App extends React.Component {
 		super()
 
 		this.state = {
-			currentUser: null
+			currentUser: null,
+			isLoading: true
 		}
 	}
 
@@ -31,11 +32,11 @@ class App extends React.Component {
 						currentUser: {
 							id: snapshot.id,
 							...snapshot.data()
-						}
+						}, isLoading: false
 					});
 				})
 			} else { //En caso de que no este iniciada la sesion
-				this.setState({ currentUser: null });
+				this.setState({ currentUser: null, isLoading: false });
 			}
 		})
 	}
@@ -46,10 +47,11 @@ class App extends React.Component {
 	}
 
 	render() {
+		const { currentUser, isLoading } = this.state;
 		return (
 			<Router>
-				<Header currentUser={this.state.currentUser} />
-				<Route path="/" exact render={(props) => <Homepage currentUser={this.state.currentUser} />} />
+				<Header currentUser={currentUser} />
+				<Route path="/" exact render={(props) => <Homepage currentUser={currentUser} isLoading={isLoading} />} />
 				<Route path="/signIn" component={SignInAndSignUp}></Route>
 				<Route path="/about" component={About}></Route>
 			</Router>
