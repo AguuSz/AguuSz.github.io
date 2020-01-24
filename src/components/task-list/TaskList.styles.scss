@@ -3,6 +3,7 @@
     padding: 20px;
 
     .container {
+        width: inherit;
         margin-left: -20px;
         display: grid;
         grid-template-columns: repeat(3, 250px);

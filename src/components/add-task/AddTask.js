@@ -11,7 +11,7 @@ export class AddTask extends Component {
         this.state = {
             titulo: '',
             descripcion: '',
-            categoria: ''
+            categoria: 'sin categoria'
         }
     }
 
@@ -39,7 +39,7 @@ export class AddTask extends Component {
                 this.setState({
                     titulo: '',
                     descripcion: '',
-                    categoria: ''
+                    categoria: 'sin categoria'
                 });
             })
             .catch((error) => alert(error))
@@ -49,7 +49,7 @@ export class AddTask extends Component {
     render() {
         return (
             <div className="add-task">
-                <form className="formulario">
+                <form className="formulario" onSubmit={this.handleSubmit}>
                     <h3 className="form-titulo">Añadir tarea</h3>
 
                     <input
@@ -57,6 +57,7 @@ export class AddTask extends Component {
                         name="titulo"
                         value={this.state.titulo}
                         type="text"
+                        required
                         placeholder="Titulo.."
                         onChange={this.handleChange}
                     />
@@ -65,13 +66,14 @@ export class AddTask extends Component {
                         name="descripcion"
                         value={this.state.descripcion}
                         type="text"
+                        required
                         placeholder="Descripcion.."
                         onChange={this.handleChange}
                     />
                     <div className="selector-categoria">
                         <label htmlFor="categoria">Categoria: </label>
                         <select name="categoria" className="selector" onChange={this.handleChange} value={this.state.categoria}>
-                            <option value="">Varios</option>
+                            <option value="sin categoria">Varios</option>
                             <option value="libros">Libros</option>
                             <option value="programacion">Programacion</option>
                             <option value="gimnasio">Gimnasio</option>
@@ -79,7 +81,7 @@ export class AddTask extends Component {
                     </div>
 
 
-                    <button className="boton submit" onClick={this.handleSubmit}>AÑADIR</button>
+                    <input type="submit" className="boton submit" value="AÑADIR" />
                 </form>
             </div>
         )

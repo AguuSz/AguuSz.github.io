@@ -44,6 +44,66 @@ export class TaskList extends Component {
     render() {
         const { id } = this.props.currentUser;
         const { categoria } = this.state;
+        const filtrar = () => {
+            if (categoria !== '') {
+                return (
+                    <div className="container">
+                        <FirestoreCollection
+                            path={`users/${id}/todos`}
+                            filter={['categoria', '==', `${categoria}`]}
+                            render={({ isLoading, data }) => {
+                                return isLoading ? (
+                                    <PulseLoader
+                                        css={override}
+                                        margin={10}
+                                        size={25}
+                                        //size={"150px"} this also works
+                                        color={"#CF1259"}
+                                    />
+                                ) : (
+                                        <React.Fragment>
+                                            {
+
+                                                data.map(({ id, ...additionalProps }) => (
+                                                    <Task key={id} id={id} {...additionalProps} onClick={this.handleClick} />
+                                                ))
+                                            }
+                                        </React.Fragment>
+                                    );
+                            }}
+                        />
+                    </div>
+                )
+            } else {
+                return (
+                    <div className="container">
+                        <FirestoreCollection
+                            path={`users/${id}/todos`}
+                            render={({ isLoading, data }) => {
+                                return isLoading ? (
+                                    <PulseLoader
+                                        css={override}
+                                        margin={10}
+                                        size={25}
+                                        //size={"150px"} this also works
+                                        color={"#CF1259"}
+                                    />
+                                ) : (
+                                        <React.Fragment>
+                                            {
+
+                                                data.map(({ id, ...additionalProps }) => (
+                                                    <Task key={id} id={id} {...additionalProps} onClick={this.handleClick} />
+                                                ))
+                                            }
+                                        </React.Fragment>
+                                    );
+                            }}
+                        />
+                    </div>
+                )
+            }
+        }
         return (
             <div className="task-list">
                 <h1 className="titulo">Lista de tareas</h1>
@@ -56,32 +116,8 @@ export class TaskList extends Component {
                         <option value="gimnasio">Gimnasio</option>
                     </select>
                 </div>
-                <div className="container">
-                    <FirestoreCollection
-                        path={`users/${id}/todos`}
-                        filter={['categoria', '==', `${categoria}`]}
-                        render={({ isLoading, data }) => {
-                            return isLoading ? (
-                                <PulseLoader
-                                    css={override}
-                                    margin={10}
-                                    size={25}
-                                    //size={"150px"} this also works
-                                    color={"#CF1259"}
-                                />
-                            ) : (
-                                    <React.Fragment>
-                                        {
 
-                                            data.map(({ id, ...additionalProps }) => (
-                                                <Task key={id} id={id} {...additionalProps} onClick={this.handleClick} />
-                                            ))
-                                        }
-                                    </React.Fragment>
-                                );
-                        }}
-                    />
-                </div>
+                {filtrar()}
 
             </div>
         )
