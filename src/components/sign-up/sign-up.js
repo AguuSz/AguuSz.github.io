@@ -25,7 +25,7 @@ class SignUp extends React.Component {
         const { displayName, email, password, confirmPassword } = this.state;
 
         if (password !== confirmPassword) {
-            alert("Passwords don't match")
+            alert("Las contraseñas no coinciden")
             return;
         }
 
@@ -65,8 +65,8 @@ class SignUp extends React.Component {
 
         return (
             <div className="sign-up">
-                <h2 className="title">I do not have an account</h2>
-                <span>Sign up with your email and password</span>
+                <h2 className="title">No tengo cuenta</h2>
+                <span>Registrese con su correo y contraseña</span>
 
                 <form className="sign-up-form" onSubmit={this.handleSubmit}>
                     <FormInput
@@ -74,7 +74,7 @@ class SignUp extends React.Component {
                         name="displayName"
                         value={displayName}
                         onChange={this.handleChange}
-                        label="Display name"
+                        label="Nombre"
                         required>
                     </FormInput>
                     <FormInput
@@ -90,7 +90,7 @@ class SignUp extends React.Component {
                         name="password"
                         value={password}
                         onChange={this.handleChange}
-                        label="Password"
+                        label="Contraseña"
                         required>
                     </FormInput>
                     <FormInput
@@ -98,11 +98,11 @@ class SignUp extends React.Component {
                         name="confirmPassword"
                         value={confirmPassword}
                         onChange={this.handleChange}
-                        label="Confirm password"
+                        label="Confirme contraseña"
                         required>
                     </FormInput>
 
-                    <CustomButton type="submit">SIGN UP</CustomButton>
+                    <CustomButton type="submit">Registrarse</CustomButton>
                 </form>
             </div>
         )

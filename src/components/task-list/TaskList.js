@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './TaskList.styles.scss'
 import { css } from "@emotion/core";
-import PropagateLoader from "react-spinners/PropagateLoader";
+import PulseLoader from "react-spinners/PulseLoader";
 
 import Task from '../task/task';
 
@@ -62,8 +62,9 @@ export class TaskList extends Component {
                         filter={['categoria', '==', `${categoria}`]}
                         render={({ isLoading, data }) => {
                             return isLoading ? (
-                                <PropagateLoader
+                                <PulseLoader
                                     css={override}
+                                    margin={10}
                                     size={25}
                                     //size={"150px"} this also works
                                     color={"#CF1259"}
