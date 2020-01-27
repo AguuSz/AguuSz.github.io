@@ -50,7 +50,7 @@ class App extends React.Component {
 		const { currentUser, isLoading } = this.state;
 		return (
 			<Router>
-				<Header currentUser={currentUser} />
+				<Header currentUser={currentUser} isLoading={isLoading} />
 				<Route path="/" exact render={(props) => <Homepage currentUser={currentUser} isLoading={isLoading} />} />
 				<Route path="/signIn" component={SignInAndSignUp}></Route>
 				<Route path="/about" component={About}></Route>

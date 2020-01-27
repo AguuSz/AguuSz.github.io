@@ -50,5 +50,11 @@
         border-radius: 20px;
         padding-left: 10px;
         padding-right: 10px;
+
+        &:focus {
+            border: 2px solid #CF1259;
+            transition: all ease 0.4s;
+            outline: none;
+        }
     }
 }
