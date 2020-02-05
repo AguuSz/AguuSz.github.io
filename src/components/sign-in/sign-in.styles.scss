@@ -5,6 +5,10 @@
     background-color: white;
     padding: 30px;
     border-radius: 15px;
+
+    @media only screen and (max-width: 768px) {
+      width: 100%;       
+    }
   
     .title {
       margin: 10px 0;
@@ -15,5 +19,9 @@
       justify-content: space-between;
       margin-top: 25px;
       align-items: center;
+      
+      @media only screen and (max-width: 768px) {
+        flex-direction: column;     
+      }
     }
   }

@@ -2,6 +2,10 @@
     width: 800px;
     padding: 20px;
 
+    @media only screen and (max-width: 768px) {
+        width: 100%;
+    }
+
     .container {
         width: inherit;
         margin-left: -20px;
@@ -9,6 +13,11 @@
         grid-template-columns: repeat(3, 250px);
         grid-gap: 40px;
         grid-auto-rows: minmax(130px, auto);
+
+        @media only screen and (max-width: 768px) {
+            display: block;
+            margin: 0 auto;
+        }
     }
 
     .titulo {
@@ -21,6 +30,11 @@
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
         transition: 0.3s;
         transition: all .2s ease-in-out; 
+
+        @media only screen and (max-width: 768px) {
+            margin-top: 20px; 
+            width: 100%;
+        }
     }
     .carta:hover {
         transform: scale(1.1); 
@@ -33,9 +47,19 @@
         transform: scale(1.1); 
     }
 
+    .seleccionar {
+        @media only screen and (max-width: 768px) {
+            width: 60%;
+        }
+    }
+
     .selector-categoria {
         display: flex;
         justify-content: space-between;
+
+        @media only screen and (max-width: 768px) {
+            justify-content: space-evenly;   
+        }
     }
     .selector {
         width: 600px;
@@ -50,6 +74,11 @@
             border: 2px solid #CF1259;
             transition: all ease 0.4s;
             outline: none;
+        }
+
+        @media only screen and (max-width: 768px) {
+            width: 30%;
+            margin-right: 0;
         }
     }
 }

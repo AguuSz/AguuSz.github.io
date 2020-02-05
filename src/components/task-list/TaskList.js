@@ -108,7 +108,7 @@ export class TaskList extends Component {
             <div className="task-list">
                 <h1 className="titulo">Lista de tareas</h1>
                 <div className="selector-categoria">
-                    <label htmlFor="categoria">Ordenar por categoria: </label>
+                    <label className="seleccionar" htmlFor="categoria">Ordenar por categoria: </label>
                     <select name="categoria" className="selector" onChange={this.handleChange}>
                         <option value="">Varios</option>
                         <option value="libros">Libros</option>
